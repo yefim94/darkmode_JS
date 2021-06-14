@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body[data-theme="light-mode"] {
+  --color: black;
+  --background-color: white;
+  --secondary-color: grey;
+}
+body[data-theme="dark-mode"]  {
+  --color: rgb(255, 255, 255);
+  --background-color: rgb(0, 0, 0);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--color);
+  background-color: var(--background-color);
+}
+.cont {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 2rem;
+  height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+}
+.theme-switcher-cont {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+input[type = "checkbox"] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+label {
+  display: block;
+  text-indent: -999999px;
+  height: 30px;
+  width: 60px;
+  background-color: antiquewhite;
+  border-radius: 60px;
+  position: relative;
+  cursor: pointer;
+  transition: all 1s linear;
+  border: 1px solid white;
+}
+label::before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: black;
+  top: 50%;
+  left: 5px;
+  transition: all 1s linear;
+  transform: translateY(-50%);
+}
+input[type = "checkbox"]:checked + label {
+  background-color: black;
+}
+input[type = "checkbox"]:checked + label::before {
+  background-color: white;
+  left: calc(100% - 25px);
+}
